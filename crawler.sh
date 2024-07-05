@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if URL is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <sitemap_url>"
+  exit 1
+fi
+
 # Function to download and process sitemap
 process_sitemap() {
   local SITEMAP_URL=$1
@@ -43,7 +49,7 @@ process_sitemap() {
 
 # Main script starts here
 # URL to the main sitemap.xml
-MAIN_SITEMAP_URL="https://example.com/sitemap.xml"
+MAIN_SITEMAP_URL=$1
 
 # Start processing the main sitemap
 process_sitemap $MAIN_SITEMAP_URL
